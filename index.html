@@ -11,12 +11,68 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=Kanit:wght@100;200;300;400;500;600;700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300&display=swap"
+      rel="stylesheet"
+    />
+     </script>
+    <script
+      src="https://kit.fontawesome.com/4ec26798d2.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Weather</title>
   </head>
   <body>
     <div class="container">
-      <h1>Hello</h1>
+      <nav class="search-bar">
+
+        <div class="row">
+          <div class="col-2" id="current-time">15:15</div>
+
+          <div class="col-6" >
+        <form id="search-form">
+          <input type="search" placeholder="Type your city" class="form-control" autocomplete="off" id="search-form">
+        </form>
+        </div>
+
+        <div class="col-2">
+          <input type="submit" value="search" class="btn btn-primary" id="search-button">
+        </div>
+      </div>
+
+
+
+      </nav>
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-6">
+            <h1>Warsaw</h1>
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt=""
+            />
+            <h2>Tuesday</h2>
+            <h3>7° C | F</h3>
+            
+            <ul>
+              <li>Highest: 7°</li>
+              <li>Lowest: 7°</li>
+              <li>Humidity: 50%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
+    <footer>
+            
+        <a href="https://github.com/mdlsnts/vanilla-weather-final-project" class="gitHubLink", target="_blank">
+          Open-source code</a>
+         by <a href="https://linktr.ee/martadlsnts" class="profile">Marta Delos Santos</a> 
+    
+    </footer>
     <script src="src/index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
