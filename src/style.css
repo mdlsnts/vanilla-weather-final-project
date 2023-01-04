@@ -22,6 +22,9 @@ h1 {
   font-weight: 100;
   color: #490736;
 }
+#description {
+  font-size: 13px;
+}
 h2 {
   font-weight: bold;
   font-size: 50px;

@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=Kanit:wght@100;200;300;400;500;600;700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300&family=Overpass:wght@100;200;300;400&family=Prompt:wght@100;200;300;400;500&family=Questrial&family=Trirong:wght@100;200;300;400;500&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="src/style.css" />
 
@@ -56,21 +57,20 @@
       <div class="weather-app">
         <div class="row">
           <div class="col-4" id="current-day">
-            <h1>Warsaw</h1>
+            <h1 id="currentCity">Warsaw</h1>
 
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt=""
-            />
-            <div class="weather-description">Cloudy</div>
+            <img src="" alt="" id="icon" />
+            <div id="description"></div>
             <br />
-            <h2>7° <span class="degrees">C | F</span></h2>
+            <h2>
+              <span id="currentTemp"> </span><span class="degrees">C | F</span>
+            </h2>
             <h3>Tuesday</h3>
             <ul>
-              <li>Highest: 7°</li>
-              <li>Lowest: 7°</li>
-              <li>Humidity: 50%</li>
-              <li>Wind: 2 km/h</li>
+              <li>Highest: <span id="currentHigh"></span></li>
+              <li>Lowest: <span id="currentLow"></span></li>
+              <li>Humidity: <span id="currentHumidity"> </span></li>
+              <li>Wind: <span id="currentWind"> </span></li>
             </ul>
           </div>
         </div>
@@ -86,7 +86,7 @@
         Open-source code</a
       >
       by
-      <a href="https://linktr.ee/martadlsnts" class="profile"
+      <a href="https://linktr.ee/martadlsnts" class="profile" target="_blank"
         >Marta Delos Santos</a
       >
     </footer>
