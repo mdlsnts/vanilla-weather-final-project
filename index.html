@@ -4,74 +4,91 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=Kanit:wght@100;200;300;400;500;600;700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Josefin+Slab:wght@100;200;300;400;500;600;700&family=Kanit:wght@100;200;300;400;500;600;700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300&family=Overpass:wght@100;200;300;400&family=Prompt:wght@100;200;300;400;500&family=Questrial&family=Trirong:wght@100;200;300;400;500&display=swap"
       rel="stylesheet"
     />
-     </script>
-    <script
-      src="https://kit.fontawesome.com/4ec26798d2.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <link rel="stylesheet" href="src/style.css" />
+
     <title>Weather</title>
   </head>
   <body>
     <div class="container">
       <nav class="search-bar">
-
         <div class="row">
-          <div class="col-2" id="current-time">15:15</div>
-
-          <div class="col-6" >
-        <form id="search-form">
-          <input type="search" placeholder="Type your city" class="form-control" autocomplete="off" id="search-form">
-        </form>
+          <div class="col-3">
+            <span id="current-time">
+              <span id="hours">14</span>
+              <span id="separator">:</span>
+              <span id="minutes">28</span>
+            </span>
+          </div>
+          <div class="col-6">
+            <form class="search-form" id="search-form">
+              <input
+                type="text"
+                class="search-field"
+                placeholder="type your city..."
+                autocomplete="off"
+                id="search-input"
+              />
+              <input type="submit" class="search-button" value="search" />
+            </form>
+          </div>
+          <div class="col-3">
+            <button class="current-button" id="current-button">
+              current location
+            </button>
+          </div>
         </div>
-
-        <div class="col-2">
-          <input type="submit" value="search" class="btn btn-primary" id="search-button">
-        </div>
-      </div>
-
-
-
       </nav>
       <div class="weather-app">
         <div class="row">
-          <div class="col-6">
+          <div class="col-4" id="current-day">
             <h1>Warsaw</h1>
+
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt=""
             />
-            <h2>Tuesday</h2>
-            <h3>7° C | F</h3>
-            
+            <div class="weather-description">Cloudy</div>
+            <br />
+            <h2>7° <span class="degrees">C | F</span></h2>
+            <h3>Tuesday</h3>
             <ul>
               <li>Highest: 7°</li>
               <li>Lowest: 7°</li>
               <li>Humidity: 50%</li>
+              <li>Wind: 2 km/h</li>
             </ul>
           </div>
         </div>
       </div>
-
     </div>
     <footer>
-            
-        <a href="https://github.com/mdlsnts/vanilla-weather-final-project" class="gitHubLink", target="_blank">
-          Open-source code</a>
-         by <a href="https://linktr.ee/martadlsnts" class="profile">Marta Delos Santos</a> 
-    
+      <a
+        href="https://github.com/mdlsnts/vanilla-weather-final-project"
+        class="gitHubLink"
+        ,
+        target="_blank"
+      >
+        Open-source code</a
+      >
+      by
+      <a href="https://linktr.ee/martadlsnts" class="profile"
+        >Marta Delos Santos</a
+      >
     </footer>
     <script src="src/index.js"></script>
     <script
