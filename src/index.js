@@ -69,6 +69,7 @@ function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   let h1 = document.querySelector("h1");
+  searchInput.value = searchInput.value.trim();
   h1.innerHTML = `${(searchInput.value = toUpper(searchInput.value))}`;
   searchCity(searchInput.value);
 }
