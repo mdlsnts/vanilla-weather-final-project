@@ -1,12 +1,5 @@
 let now = new Date();
-let hour = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
-if (hour < 10) {
-  hour = "0" + hour;
-}
+
 let date = now.getDate();
 
 let days = [
@@ -44,11 +37,27 @@ day3Forecast.innerHTML = `${day3}`;
 let day4Forecast = document.querySelector("#day4Name");
 day4Forecast.innerHTML = `${day4}`;
 
-let currentHour = document.querySelector("#hours");
-currentHour.innerHTML = `${hour}`;
+function currentTime() {
+  let now = new Date();
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
-let currentMinutes = document.querySelector("#minutes");
-currentMinutes.innerHTML = `${minutes}`;
+  let currentHour = document.querySelector("#hours");
+  currentHour.innerHTML = `${hour}`;
+
+  let currentMinutes = document.querySelector("#minutes");
+  currentMinutes.innerHTML = `${minutes}`;
+
+  setTimeout(function () {
+    currentTime();
+  }, 1000);
+}
 
 function searchCity(city) {
   let apiKey = "b79e0a0cc3fca65ee539979ef484d2b9";

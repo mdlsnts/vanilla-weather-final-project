@@ -24,7 +24,7 @@
 
     <title>Weather</title>
   </head>
-  <body>
+  <body onload="currentTime()">
     <div class="container">
 
       <nav class="search-bar">
@@ -77,7 +77,6 @@
               <li>Wind: <span id="currentWind"> </span></li>
             </ul>
           </div>
-
      <div class="forecast col-3">
       <br>
       <div class="day-of-the-week" id="day1Name">day 1</div>         
@@ -118,12 +117,8 @@
       </ul>
       </div>
     </div>
-    
   </div>
-
     <br>
-  
-
     <footer>
       <a
         href="https://github.com/mdlsnts/vanilla-weather-final-project"
