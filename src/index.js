@@ -75,7 +75,6 @@ function search(event) {
 }
 
 function showTemperature(response) {
-  console.log(response.data.weather[0].description);
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
 
