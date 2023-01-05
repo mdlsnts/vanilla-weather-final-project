@@ -1,18 +1,19 @@
 body {
-  background-color: #fafcfb;
+  background-color: #22225a;
 }
 .weather-app {
   max-width: 700px;
   margin: 30px auto;
   padding: 20px;
-  background: #cacedc;
+  background: #181b53;
   border-radius: 6px;
 }
 #current-day {
-  color: #191e48;
+  color: #f5fffd;
   text-align: center;
   font-family: "Comfortaa";
 }
+
 h1 {
   font-size: 45px;
   font-weight: bold;
@@ -20,10 +21,11 @@ h1 {
 .weather-description {
   font-size: 15px;
   font-weight: 100;
-  color: #490736;
+  color: #f58886;
 }
 #description {
   font-size: 13px;
+  color: #f58886;
 }
 h2 {
   font-weight: bold;
@@ -39,16 +41,24 @@ h3 {
 
 ul {
   list-style: none;
-
   padding: 0;
   text-align: center;
   font-size: 14px;
 }
 li {
-  display: inline-block;
   margin: 0 20px;
 }
-
+.forecast {
+  color: #f5fffd;
+  text-align: center;
+  font-family: "Comfortaa";
+}
+.forecast-details {
+  font-size: 12px;
+}
+.day-of-the-week {
+  font-size: 20px;
+}
 .container {
   max-width: 700px;
   margin: 0 auto;
@@ -58,7 +68,7 @@ li {
   font-family: "Comfortaa";
 }
 #current-time {
-  color: #490736;
+  color: #f58886;
   text-align: left;
   margin-left: 20px;
   font-size: 22px;
@@ -82,67 +92,79 @@ footer {
   text-align: center;
   margin: 6px;
   font-size: 13px;
-  color: #393e46;
+  color: #6b728e;
   font-family: "Montserrat Alternates", sans-serif;
 }
 .gitHubLink {
   text-decoration: none;
   font-weight: bold;
-  color: #490736;
+  color: #f58886;
   opacity: 90%;
 }
 .gitHubLink:hover {
   font-weight: bold;
-  color: #9c529e;
+  color: #f5fffd;
 }
 .profile {
   text-decoration: none;
   font-weight: bold;
-  color: #191e48;
+  color: #f5fffd;
   opacity: 90%;
 }
 .profile:hover {
-  color: #490736;
+  color: #f58886;
   font-weight: bold;
 }
 
 .search-form {
   display: inline-block;
-  border: solid 1px #cacedc;
+  border: solid 1px #22225a;
   padding: 3px 5px;
-  border-radius: 8px;
+  border-radius: 2px;
+  width: 260px;
+  margin-top: 1px;
   box-shadow: 0 1px 0px rgb(0 0 0 / 10%);
-  background: #222426;
+  background: #22225a;
 }
 .search-field {
-  background: #fafcfb;
+  background: #f5fffd;
   padding: 6px 6px 6px 6px;
-  width: 200px;
+  width: 180px;
+  height: 35px;
   border: solid 1px #cacedc;
   outline: none;
-  border-radius: 12px;
+  font-size: 13px;
+  border-radius: 2px;
   box-shadow: inset 0 1px 2px rgb(0 0 0 / 20%);
 }
 .search-button {
-  color: #191e48;
+  color: #181b53;
   font-weight: bold;
-  padding: 6px 6px 6px 6px;
-  border: solid 1px #4a4858;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 20%);
+  border: solid 1px #181b53;
   font-size: 13px;
-  height: 30px;
-  width: 65px;
-  border-radius: 1em;
-  background: #cacedc;
+  height: 36px;
+  width: 60px;
+  border-radius: 2px;
+  background: #f5fffd;
+}
+.search-button:hover {
+  background: #f58886;
 }
 
 .current-button {
-  color: #fdfbfc;
-  border: solid 1.5px #490736;
+  color: #181b53;
+  margin-top: 5px;
+  border: solid 1.5px #f58886;
   font-size: 13px;
   font-weight: bold;
-  height: 45px;
-  width: 100px;
-  border-radius: 1.5em;
-  background: #490736;
-  margin-left: 22px;
+  height: 35px;
+  width: 130px;
+  border-radius: 2px;
+  background: #f58886;
+  margin-left: 15px;
+}
+.current-button:hover {
+  background: #f5fffd;
+  border: solid 1.5px #f5fffd;
 }
