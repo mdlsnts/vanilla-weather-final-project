@@ -101,29 +101,29 @@ li {
 footer {
   text-align: center;
   margin: 6px;
-  font-size: 13px;
+  font-size: 11px;
   color: #6b728e;
   font-family: "Montserrat Alternates", sans-serif;
 }
 .gitHubLink {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   color: #f58886;
   opacity: 90%;
 }
 .gitHubLink:hover {
-  font-weight: bold;
+  font-weight: normal;
   color: #f5fffd;
 }
 .profile {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   color: #f5fffd;
   opacity: 90%;
 }
 .profile:hover {
   color: #f58886;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .search-form {

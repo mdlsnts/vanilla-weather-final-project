@@ -17,11 +17,32 @@ let days = [
   "Thursday",
   "Friday",
   "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
 ];
 let day = days[now.getDay()];
+let day1 = days[now.getDay() + 1];
+let day2 = days[now.getDay() + 2];
+let day3 = days[now.getDay() + 3];
+let day4 = days[now.getDay() + 4];
 
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${day}`;
+
+let day1Forecast = document.querySelector("#day1Name");
+day1Forecast.innerHTML = `${day1}`;
+
+let day2Forecast = document.querySelector("#day2Name");
+day2Forecast.innerHTML = `${day2}`;
+
+let day3Forecast = document.querySelector("#day3Name");
+day3Forecast.innerHTML = `${day3}`;
+
+let day4Forecast = document.querySelector("#day4Name");
+day4Forecast.innerHTML = `${day4}`;
 
 let currentHour = document.querySelector("#hours");
 currentHour.innerHTML = `${hour}`;
