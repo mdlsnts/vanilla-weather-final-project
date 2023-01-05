@@ -48,9 +48,9 @@ function showTemperature(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
 
-  let celsiusTemperature = Math.round(response.data.main.temp);
+  let temperatureElement = Math.round(response.data.main.temp);
   let currentTempElement = document.querySelector("#currentTemp");
-  currentTempElement.innerHTML = `${celsiusTemperature}°`;
+  currentTempElement.innerHTML = `${temperatureElement}`;
 
   let temp_max = Math.round(response.data.main.temp_max);
   let highTemp = document.querySelector("#currentHigh");
@@ -76,18 +76,41 @@ function showTemperature(response) {
 
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.weather[0].description;
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-
-searchCity("Warsaw");
 
 function searchLocation(position) {
   let apiKey = "b79e0a0cc3fca65ee539979ef484d2b9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentTemp");
+  celsiusConvert.classList.remove("active");
+  celsiusConvert.classList.add("inactive");
+  fahrenheitConvert.classList.add("active");
+  fahrenheitConvert.classList.remove("inactive");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentTemp");
+  celsiusConvert.classList.add("active");
+  celsiusConvert.classList.remove("inactive");
+  fahrenheitConvert.classList.remove("active");
+  fahrenheitConvert.classList.add("inactive");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -106,3 +129,11 @@ function toUpper(str) {
     })
     .join(" ");
 }
+
+let fahrenheitConvert = document.querySelector("#fahrenheit-convert");
+fahrenheitConvert.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusConvert = document.querySelector("#celsius-convert");
+celsiusConvert.addEventListener("click", showCelsiusTemperature);
+
+searchCity("Warsaw");
