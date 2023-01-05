@@ -75,7 +75,6 @@ function search(event) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let day1MaxTemperatureElement = Math.round(
     response.data.daily[0].temperature.maximum
   );
