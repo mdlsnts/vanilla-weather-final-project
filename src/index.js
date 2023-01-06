@@ -253,9 +253,9 @@ function showFahrenheitTemperature(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   let MaxFahrenheitTemperature = (MaxCelsiusTemperature * 9) / 5 + 32;
-  MaxTemperatureElement.innerHTML = Math.round(MaxFahrenheitTemperature);
+  MaxTemperatureElement.innerHTML = `${Math.round(MaxFahrenheitTemperature)}°`;
   let MinFahrenheitTemperature = (MinCelsiusTemperature * 9) / 5 + 32;
-  MinTemperatureElement.innerHTML = Math.round(MinFahrenheitTemperature);
+  MinTemperatureElement.innerHTML = `${Math.round(MinFahrenheitTemperature)}°`;
 }
 
 function showCelsiusTemperature(event) {
@@ -268,8 +268,8 @@ function showCelsiusTemperature(event) {
   fahrenheitConvert.classList.remove("active");
   fahrenheitConvert.classList.add("inactive");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  MaxTemperatureElement.innerHTML = Math.round(MaxCelsiusTemperature);
-  MinTemperatureElement.innerHTML = Math.round(MinCelsiusTemperature);
+  MaxTemperatureElement.innerHTML = `${Math.round(MaxCelsiusTemperature)}°`;
+  MinTemperatureElement.innerHTML = `${Math.round(MinCelsiusTemperature)}°`;
 }
 
 let celsiusTemperature = null;
