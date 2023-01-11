@@ -60,9 +60,9 @@ function currentTime() {
 }
 
 function searchCity(city) {
-  let apiKey = "b79e0a0cc3fca65ee539979ef484d2b9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  let apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  https: axios.get(apiUrl).then(showTemperature);
 }
 
 function search(event) {
@@ -188,27 +188,24 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
+  console.log(response.data);
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.name}`;
+  h1.innerHTML = `${response.data.city}`;
 
-  let temperatureElement = Math.round(response.data.main.temp);
+  let temperatureElement = Math.round(response.data.temperature.current);
   let currentTempElement = document.querySelector("#currentTemp");
   currentTempElement.innerHTML = `${temperatureElement}`;
 
-  let temp_max = Math.round(response.data.main.temp_max);
-  let highTemp = document.querySelector("#currentHigh");
-  highTemp.innerHTML = `${temp_max}°`;
+  let feelsLikeElement = Math.round(response.data.temperature.feels_like);
+  let feelsLike = document.querySelector("#feelsLike");
+  feelsLike.innerHTML = `${feelsLikeElement}°`;
 
-  let temp_min = Math.round(response.data.main.temp_min);
-  let lowTemp = document.querySelector("#currentLow");
-  lowTemp.innerHTML = `${temp_min}°`;
-
-  let humid = response.data.main.humidity;
+  let humid = response.data.temperature.humidity;
   let humidity = document.querySelector("#currentHumidity");
   humidity.innerHTML = `${humid}%`;
 
@@ -219,57 +216,56 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
 
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.condition.description;
 
-  celsiusTemperature = response.data.main.temp;
-  MaxCelsiusTemperature = response.data.main.temp_max;
-  MinCelsiusTemperature = response.data.main.temp_min;
+  celsiusTemperature = response.data.temperature.current;
+  feelsLikeCelsiusTemperature = response.data.temperature.feels_like;
 
-  getForecast(response.data.coord);
+  getForecast(response.data.coordinates);
 }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
 function searchLocation(position) {
-  let apiKey = "b79e0a0cc3fca65ee539979ef484d2b9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#currentTemp");
-  let MaxTemperatureElement = document.querySelector("#currentHigh");
-  let MinTemperatureElement = document.querySelector("#currentLow");
+  let feelsLikeTemperatureElement = document.querySelector("#feelsLike");
   celsiusConvert.classList.remove("active");
   celsiusConvert.classList.add("inactive");
   fahrenheitConvert.classList.add("active");
   fahrenheitConvert.classList.remove("inactive");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  let MaxFahrenheitTemperature = (MaxCelsiusTemperature * 9) / 5 + 32;
-  MaxTemperatureElement.innerHTML = `${Math.round(MaxFahrenheitTemperature)}°`;
-  let MinFahrenheitTemperature = (MinCelsiusTemperature * 9) / 5 + 32;
-  MinTemperatureElement.innerHTML = `${Math.round(MinFahrenheitTemperature)}°`;
+  let feelsLikeFahrenheitTemperature =
+    (feelsLikeCelsiusTemperature * 9) / 5 + 32;
+  feelsLikeTemperatureElement.innerHTML = `${Math.round(
+    feelsLikeFahrenheitTemperature
+  )}°`;
 }
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#currentTemp");
-  let MaxTemperatureElement = document.querySelector("#currentHigh");
-  let MinTemperatureElement = document.querySelector("#currentLow");
+  let feelsLikeTemperatureElement = document.querySelector("#feelsLike");
   celsiusConvert.classList.add("active");
   celsiusConvert.classList.remove("inactive");
   fahrenheitConvert.classList.remove("active");
   fahrenheitConvert.classList.add("inactive");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  MaxTemperatureElement.innerHTML = `${Math.round(MaxCelsiusTemperature)}°`;
-  MinTemperatureElement.innerHTML = `${Math.round(MinCelsiusTemperature)}°`;
+  feelsLikeTemperatureElement.innerHTML = `${Math.round(
+    feelsLikeCelsiusTemperature
+  )}°`;
 }
 
 let celsiusTemperature = null;

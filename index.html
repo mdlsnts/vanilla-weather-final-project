@@ -44,6 +44,7 @@
                 placeholder="type your city..."
                 autocomplete="off"
                 id="search-input"
+                required
               />
               <input type="submit" class="search-button" value="search" />
             </form>
@@ -61,7 +62,7 @@
         <div class="row">
           <div class="col-6" id="current-day">
             <h1 id="currentCity">Warsaw</h1>
-            <img src="" alt="" id="icon" width="110"/>
+            <img src="" alt="" id="icon" width="130"/>
             <div id="description"></div>
             <br />
             <h2>
@@ -71,8 +72,7 @@
             </h2>
             <h3></h3>
             <ul>
-              <li>Highest: <span id="currentHigh">°</span></li>
-              <li>Lowest: <span id="currentLow">°</span></li>
+              <li>Feels like: <span id="feelsLike">°</span></li>
               <li>Humidity: <span id="currentHumidity"> </span></li>
               <li>Wind: <span id="currentWind"> </span></li>
             </ul>
