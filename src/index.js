@@ -72,6 +72,10 @@ function search(event) {
   searchInput.value = searchInput.value.trim();
   h1.innerHTML = `${(searchInput.value = toUpper(searchInput.value))}`;
   searchCity(searchInput.value);
+  celsiusConvert.classList.add("active");
+  celsiusConvert.classList.remove("inactive");
+  fahrenheitConvert.classList.remove("active");
+  fahrenheitConvert.classList.add("inactive");
 }
 
 function displayForecast(response) {
@@ -273,6 +277,10 @@ let celsiusTemperature = null;
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+  celsiusConvert.classList.add("active");
+  celsiusConvert.classList.remove("inactive");
+  fahrenheitConvert.classList.remove("active");
+  fahrenheitConvert.classList.add("inactive");
 }
 
 let currentLocation = document.querySelector("#current-button");
