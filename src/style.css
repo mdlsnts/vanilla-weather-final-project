@@ -140,7 +140,7 @@ footer {
   padding: 3px 5px;
   border-radius: 2px;
   width: 260px;
-  margin-top: 1px;
+
   box-shadow: 0 1px 0px rgb(0 0 0 / 10%);
   background: #22225a;
 }
@@ -148,7 +148,7 @@ footer {
   background: #f5fffd;
   padding: 6px 6px 6px 6px;
   width: 180px;
-  height: 35px;
+  height: 36px;
   border: solid 1px #cacedc;
   outline: none;
   font-size: 13px;
@@ -176,7 +176,7 @@ footer {
   border: solid 1.5px #f58886;
   font-size: 13px;
   font-weight: bold;
-  height: 35px;
+  height: 36px;
   width: 130px;
   border-radius: 2px;
   background: #f58886;

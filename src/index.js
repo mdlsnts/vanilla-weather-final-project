@@ -62,7 +62,7 @@ function currentTime() {
 function searchCity(city) {
   let apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  https: axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function search(event) {
@@ -80,113 +80,113 @@ function search(event) {
 
 function displayForecast(response) {
   let day1MaxTemperatureElement = Math.round(
-    response.data.daily[0].temperature.maximum
+    response.data.daily[1].temperature.maximum
   );
   let day1TempMaxElement = document.querySelector("#day1TempMax");
   day1TempMaxElement.innerHTML = `${day1MaxTemperatureElement}°`;
 
   let day1MinTemperatureElement = Math.round(
-    response.data.daily[0].temperature.minimum
+    response.data.daily[1].temperature.minimum
   );
   let day1TempMinElement = document.querySelector("#day1TempMin");
   day1TempMinElement.innerHTML = `${day1MinTemperatureElement}°`;
 
-  let day1Humid = response.data.daily[0].temperature.humidity;
+  let day1Humid = response.data.daily[1].temperature.humidity;
   let day1Humidity = document.querySelector("#day1Humidity");
   day1Humidity.innerHTML = `humidity: ${day1Humid}%`;
 
-  let day1WindSpeed = Math.round(response.data.daily[0].wind.speed);
+  let day1WindSpeed = Math.round(response.data.daily[1].wind.speed);
   let day1WindElement = document.querySelector("#day1Wind");
   day1WindElement.innerHTML = `wind: ${day1WindSpeed} km/h`;
 
   //
 
   let day2MaxTemperatureElement = Math.round(
-    response.data.daily[1].temperature.maximum
+    response.data.daily[2].temperature.maximum
   );
   let day2TempMaxElement = document.querySelector("#day2TempMax");
   day2TempMaxElement.innerHTML = `${day2MaxTemperatureElement}°`;
 
   let day2MinTemperatureElement = Math.round(
-    response.data.daily[1].temperature.minimum
+    response.data.daily[2].temperature.minimum
   );
   let day2TempMinElement = document.querySelector("#day2TempMin");
   day2TempMinElement.innerHTML = `${day2MinTemperatureElement}°`;
 
-  let day2Humid = response.data.daily[1].temperature.humidity;
+  let day2Humid = response.data.daily[2].temperature.humidity;
   let day2Humidity = document.querySelector("#day2Humidity");
   day2Humidity.innerHTML = `humidity: ${day2Humid}%`;
 
-  let day2WindSpeed = Math.round(response.data.daily[1].wind.speed);
+  let day2WindSpeed = Math.round(response.data.daily[2].wind.speed);
   let day2WindElement = document.querySelector("#day2Wind");
   day2WindElement.innerHTML = `wind: ${day2WindSpeed} km/h`;
 
   //
 
   let day3MaxTemperatureElement = Math.round(
-    response.data.daily[2].temperature.maximum
+    response.data.daily[3].temperature.maximum
   );
   let day3TempMaxElement = document.querySelector("#day3TempMax");
   day3TempMaxElement.innerHTML = `${day3MaxTemperatureElement}°`;
 
   let day3MinTemperatureElement = Math.round(
-    response.data.daily[2].temperature.minimum
+    response.data.daily[3].temperature.minimum
   );
   let day3TempMinElement = document.querySelector("#day3TempMin");
   day3TempMinElement.innerHTML = `${day3MinTemperatureElement}°`;
 
-  let day3Humid = response.data.daily[2].temperature.humidity;
+  let day3Humid = response.data.daily[3].temperature.humidity;
   let day3Humidity = document.querySelector("#day3Humidity");
   day3Humidity.innerHTML = `humidity: ${day3Humid}%`;
 
-  let day3WindSpeed = Math.round(response.data.daily[2].wind.speed);
+  let day3WindSpeed = Math.round(response.data.daily[3].wind.speed);
   let day3WindElement = document.querySelector("#day3Wind");
   day3WindElement.innerHTML = `wind: ${day3WindSpeed} km/h`;
 
   //
 
   let day4MaxTemperatureElement = Math.round(
-    response.data.daily[3].temperature.maximum
+    response.data.daily[4].temperature.maximum
   );
   let day4TempMaxElement = document.querySelector("#day4TempMax");
   day4TempMaxElement.innerHTML = `${day4MaxTemperatureElement}°`;
 
   let day4MinTemperatureElement = Math.round(
-    response.data.daily[3].temperature.minimum
+    response.data.daily[4].temperature.minimum
   );
   let day4TempMinElement = document.querySelector("#day4TempMin");
   day4TempMinElement.innerHTML = `${day4MinTemperatureElement}°`;
 
-  let day4Humid = response.data.daily[3].temperature.humidity;
+  let day4Humid = response.data.daily[4].temperature.humidity;
   let day4Humidity = document.querySelector("#day4Humidity");
   day4Humidity.innerHTML = `humidity: ${day4Humid}%`;
 
-  let day4WindSpeed = Math.round(response.data.daily[3].wind.speed);
+  let day4WindSpeed = Math.round(response.data.daily[4].wind.speed);
   let day4WindElement = document.querySelector("#day4Wind");
   day4WindElement.innerHTML = `wind: ${day4WindSpeed} km/h`;
 
   let day1IconElement = document.querySelector("#day1Icon");
   day1IconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
   );
 
   let day2IconElement = document.querySelector("#day2Icon");
   day2IconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[1].condition.icon}.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[2].condition.icon}.png`
   );
 
   let day3IconElement = document.querySelector("#day3Icon");
   day3IconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[2].condition.icon}.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[3].condition.icon}.png`
   );
 
   let day4IconElement = document.querySelector("#day4Icon");
   day4IconElement.setAttribute(
     "src",
-    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[3].condition.icon}.png`
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[4].condition.icon}.png`
   );
 }
 
@@ -303,3 +303,5 @@ let celsiusConvert = document.querySelector("#celsius-convert");
 celsiusConvert.addEventListener("click", showCelsiusTemperature);
 
 searchCity("Warsaw");
+
+setInterval(showTemperature, 60000);
